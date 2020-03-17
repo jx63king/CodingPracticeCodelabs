@@ -1,0 +1,135 @@
+https://codingbat.com/prob/p189576
+
+Consider the leftmost and righmost appearances of some value in an array. We'll say that the "span" is the number of elements between the two inclusive. A single value has a span of 1. Returns the largest span found in the given array. (Efficiency is not a priority.)
+
+
+maxSpan([1, 2, 1, 1, 3]) → 4
+maxSpan([1, 4, 2, 1, 4, 1, 4]) → 6
+maxSpan([1, 4, 2, 1, 4, 4, 4]) → 6
+
+
+Initially, I didn't understand this question at all. 
+
+Then: 
+maxSpan({1, 2, 1, 1, 3}) → 4,answer is 4 coz MaxSpan between 1 to 1 is 4
+maxSpan({1, 4, 2, 1, 4, 1, 4}) → 6,answer is 6 coz MaxSpan between 4 to 4 is 6
+maxSpan({1, 4, 2, 1, 4, 4, 4}) → 6,answer is 6 coz Maxspan between 4 to 4 is 6 which is greater than MaxSpan between 1 and 1 which is 4,Hence 6>4 answer is 6.
+
+My logic
+Brute force: 
+1) loop from left to the right 
+2) if they are equal, save it to span temp
+3) loop from right to left
+4) if they are equal, save it to span temp, and compare to the span before
+5) return the bigger span
+
+
+public int maxSpan(int[] nums) {
+    Integer left = nums[0]; 
+    Integer right = nums[nums.length-1]; 
+    Integer span_left = 0; 
+    Integer span_right = 0;
+    
+    Integer result=0; 
+
+    for(Integer i=0; i<=nums.length-1; i++) {
+        if(nums[i]==left)
+            span_left++; 
+        else 
+            continue; 
+    }
+
+    for(Integer i=nums.length-1; i>0; i--) {
+        if(nums[i]==right)
+            span_right++; 
+        else 
+            continue; 
+    }
+
+    if(span_left>span_right) 
+      result = span_left; 
+
+    if(span_right>span_left) 
+      result = span_right; 
+      
+    return result+1; 
+}
+// The above solution didn't consider the case that we have to move onto the 
+// next or there are repeating numbers. 
+
+// The following is the close to perfect one 
+logic: 
+1) pre-save the most left element and right element
+2) go from right side and compare to the left element 
+3) go from left side and compare to the right element 
+4) return results 
+
+public int maxSpan(int[] nums) {
+    Integer span_left = 0; 
+    Integer span_right = 0;
+    
+    Integer left = 0; 
+    Integer right = 0; 
+    
+    
+    Integer result=0; 
+    
+    if(nums!=null) {
+      left = nums[0]; 
+      right = nums[nums.length-1]; 
+    
+    
+    for(Integer i=nums.length-1; i>0; i--) {
+        if(nums[i]==left) {
+          span_left = i; 
+          break; 
+        }
+    }
+
+    for(Integer i=0; i<nums.length-1; i++) {
+        if(nums[i]==right) {
+          span_right = i;
+          break;
+      }
+    }
+    
+    }
+    
+
+    if(span_left>span_right) 
+      result = span_left; 
+
+    if(span_right>span_left) 
+      result = span_right; 
+      
+    if(nums==null)
+      result =0; 
+      
+    return result+1; 
+}
+
+Solution: 
+
+Go from both sides towards the center
+
+public int maxSpan(int[] nums) {
+    int max = 0;
+    
+    for(int i = 0; i < nums.length; i++) {
+        int j = nums.length - 1;
+              
+        while(nums[i] != nums[j])
+            j--;
+                              
+        int span = j - i + 1;
+                                      
+        if(span > max)
+            max = span;
+    }
+                                                    
+    return max;
+}
+
+
+
+
