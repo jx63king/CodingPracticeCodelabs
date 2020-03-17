@@ -1,0 +1,52 @@
+https://codingbat.com/prob/p158767
+
+
+Given a non-empty array, return true if there is a place to split the array so that the sum of the numbers on one side is equal to the sum of the numbers on the other side.
+
+
+canBalance([1, 1, 1, 2, 1]) → true
+canBalance([2, 1, 1, 2, 1]) → false
+canBalance([10, 10]) → true
+
+my thoughts: 
+1) have two pointers from left and right 
+2) when left is equal to right return true, else false
+
+
+public boolean canBalance(int[] nums) {
+    int left =0; 
+    int right =0; 
+    int i_left=0; 
+    int i_right = nums.length()-1; 
+    boolean flag = false; // default as you cannot balance the nums
+    int mid = (left+right)/2; 
+    int i = 0 ; 
+
+    afjdksljkdladkfjkl;d 
+
+
+    
+    return flag; 
+}
+
+
+Solution: 
+
+public boolean canBalance(int[] nums) {
+    int lSum = 0; 
+
+    for(int i = 0; i<nums.length; i++) {
+        lSum = lSum + nums[i]; 
+        int rSum = 0; 
+        
+        // making sure the point j is not passing i
+        for(int j=nums.length-1; j>i; j--) { 
+            rSum = rSum + nums[j]; 
+        }
+        if(rSum==lSum)
+            return true; 
+    }
+    return false; 
+}
+
+

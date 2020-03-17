@@ -1,0 +1,58 @@
+https://codingbat.com/prob/p117334
+
+Given a non-empty string like "Code" return a string like "CCoCodCode".
+
+
+stringSplosion("Code") → "CCoCodCode"
+stringSplosion("abc") → "aababc"
+stringSplosion("ab") → "aab"
+
+My thought: 
+1) seperate the string into each characters
+2) making the char repeat by using a for loop 
+
+public String stringSplosion(String str) {
+    Integer stringSize = str.length(); 
+
+    char[] sepStr = str.toCharArray(); 
+
+    String result = ""; 
+
+    /*for(integer i=0, n=str.length(); i<n; i++ ) {
+        result.append(sepStr[i])
+        result.concat()
+
+    }*/
+
+    for(Integer i=0; i<str.length(); i++) {
+        for(Integer j=0; j<i; j++)
+            result = result + sepStr[j];
+    }
+  
+}
+
+My version that worked: 
+public String stringSplosion(String str) {
+    char[] sepStr = str.toCharArray(); 
+
+    String result = ""; 
+
+    for(Integer i=0; i<str.length(); i++) {
+        for(Integer j=0; j<=i; j++)
+            result = result + sepStr[j];
+    }
+    
+    return result; 
+}
+
+
+Official solution: 
+
+public String stringSplosion(String str) {
+  String result = "";
+  // On each iteration, add the substring of the chars 0..i
+  for (int i=0; i<str.length(); i++) {
+    result = result + str.substring(0, i+1);
+  }
+  return result;
+}
