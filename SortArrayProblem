@@ -1,0 +1,80 @@
+https://codingbat.com/prob/p262890
+
+Take a stab at this Google-created problem-solving, a mid-level exercise that involves returning an array where duplicate values from the input array have been removed.
+
+
+
+Return an array that contains the sorted values from the input array with duplicates removed.
+
+
+sort([]) → []
+sort([1]) → [1]
+sort([1, 1]) → [1]
+
+1) check if the array is empty, if it is empty, return 0 
+2) if the current element is equal to the next one, move the next element to the current position
+
+
+
+int[] sort(int[] a) {
+    
+    if(a.length==0) return a; 
+    
+    
+    int i=0; 
+    int count=0; 
+    for(int j=1; j<a.length; j++) {
+        if(a[j]==a[i]) {
+            i++; 
+            a[i]=a[j]; 
+            a[j]=-1;
+            count++; 
+        }
+        else i++; 
+    }
+
+    i=0; 
+    int[] result = new int[a.length-count]; 
+    for(int n=0; n<a.length; n++) {
+        if(a[n]>0) {
+            result[i]=a[n];
+            i++; 
+        }
+
+    }
+
+    return result; 
+}
+
+// The above one worked for most of the test cases, I am guessing a lot 
+// of the cases are with negative numbers. 
+
+
+Still use map to eliminate the duplicates
+int[] sort(int[] a) {
+    Map<int, int> mapA = new HashMap<>(); 
+    int result[a.length]; 
+
+    for(int i=0; i<a.length; i++) {
+        mapA.put(a[i], a[i]); 
+    }
+
+    int i=0; 
+    Set<Integer> keys = mapA.keySet();
+    for (Integer k : keys) {
+            //System.out.println("Key: " + k);
+            result[i]=k;
+        }
+    
+    return result;
+
+}
+
+
+
+
+https://leetcode.com/problems/remove-duplicates-from-sorted-array/solution/
+
+https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/
+
+I will work on this problem later. 
