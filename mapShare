@@ -1,0 +1,36 @@
+https://codingbat.com/prob/p148813
+
+
+Modify and return the given map as follows: if the key "a" has a value, set the key "b" to have that same value. In all cases remove the key "c", leaving the rest of the map unchanged.
+
+
+mapShare({"a": "aaa", "b": "bbb", "c": "ccc"}) → {"a": "aaa", "b": "aaa"}
+mapShare({"b": "xyz", "c": "ccc"}) → {"b": "xyz"}
+mapShare({"a": "aaa", "c": "meh", "d": "hi"}) → {"a": "aaa", "b": "aaa", "d": "hi"}
+
+logic: 
+1) In the map find key--> a, once it is found, save the value in a temp value 
+2) In the map find key--> b, if found, copy the tmp value to key-->b value
+3) In the map find key--> c, if found, delete
+
+public Map<String, String> mapShare(Map<String, String> map) {
+    //Map<String, String> tmpMap = new Map<String, String>(); 
+    String key; 
+    String value; 
+    if(map.containsKey("a")) {
+        key = "a"; 
+        value = map.get("a"); 
+        //if(map.containsKey("b")) {
+        map.put("b", value); 
+        //}
+    }
+
+    if(map.containsKey("c")) map.remove("c"); 
+
+    return map; 
+
+  
+}
+
+
+
