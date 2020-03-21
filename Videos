@@ -15,6 +15,7 @@ https://www.coursera.org/lecture/object-oriented-java/concept-challenge-referenc
 Java Object Reference: 
 https://techdevguide.withgoogle.com/paths/foundational/r-fo-14a-java-object-references/#!
 
+<<<<<<< HEAD
 
 codeCapsule: 
 http://codecapsule.com/2013/05/13/implementing-a-key-value-store-part-5-hash-table-implementations/
@@ -55,3 +56,5 @@ Unit tests:
 
 
 
+=======
+>>>>>>> a0910b41fdcdc3abe44676d0827239c818322cb9

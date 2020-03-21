@@ -11,6 +11,7 @@ word0(["c", "b", "a"]) → {"a": 0, "b": 0, "c": 0}
 
 
 public Map<String, Integer> word0(String[] strings) {
+<<<<<<< HEAD
     Map<String, Integer> countMap = new HashMap<String, Integer>(); 
 
     for(String s: strings) {
@@ -19,6 +20,9 @@ public Map<String, Integer> word0(String[] strings) {
     }
 
     return countMap; 
+=======
+  
+>>>>>>> a0910b41fdcdc3abe44676d0827239c818322cb9
 }
 
 
