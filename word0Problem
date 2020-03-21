@@ -11,7 +11,14 @@ word0(["c", "b", "a"]) → {"a": 0, "b": 0, "c": 0}
 
 
 public Map<String, Integer> word0(String[] strings) {
-  
+    Map<String, Integer> countMap = new HashMap<String, Integer>(); 
+
+    for(String s: strings) {
+        countMap.put(s, 0); 
+
+    }
+
+    return countMap; 
 }
 
 

@@ -1,0 +1,61 @@
+https://codingbat.com/prob/p256268
+
+
+Break out your Java toolbox to fix the duplicate collapsing code you'll encounter in this medium-difficulty problem created by Google.
+
+
+Fix this duplicate collapsing code: public String collapseDuplicates(String a) { int i = 0; String result = ""; while (i < a.length()) { char ch = a.charAt(i); result += ch; while (a.charAt(i+1) == ch) { i++; } i++; } return result; }
+
+public String collapseDuplicates(String a) { 
+    int i = 0; 
+    String result = ""; 
+    while (i < a.length()) { 
+        char ch = a.charAt(i); 
+        result += ch; 
+        while (a.charAt(i+1) == ch) { 
+            i++; 
+        } 
+        i++; 
+    } 
+    return result; 
+}
+
+
+collapseDuplicates("a") → "a"
+collapseDuplicates("aa") → "a"
+collapseDuplicates("abc") → "abc"
+
+
+public String collapseDuplicates(String a) { 
+    int i = 0; 
+    String result = ""; 
+    while (i < a.length()) { 
+        char ch = a.charAt(i); 
+        //result += ch; 
+        while (a.charAt(i+1) == ch) { 
+            i++; 
+        } 
+        i++; 
+    } 
+    return result; 
+}
+
+// I couldn't get this correct as the logic to me sounds correct
+// the following is the answer I got from https://github.com/yuu/learn/blob/master/google-paths/foundational/codingbat/java/collapseDuplicates.java
+
+// I will have to come bac and revist it
+
+
+public String collapseDuplicates(String a) {
+  int i = 0;
+  String result = "";
+  while (i < a.length()) {
+    char ch = a.charAt(i);
+    if (!result.endsWith(String.valueOf(ch))) 
+    // I really didn't know the endsWith thing existed 
+    // 
+      result += ch;
+    i++;
+  }
+  return result;
+}

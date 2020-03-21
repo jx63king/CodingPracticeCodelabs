@@ -15,3 +15,43 @@ https://www.coursera.org/lecture/object-oriented-java/concept-challenge-referenc
 Java Object Reference: 
 https://techdevguide.withgoogle.com/paths/foundational/r-fo-14a-java-object-references/#!
 
+
+codeCapsule: 
+http://codecapsule.com/2013/05/13/implementing-a-key-value-store-part-5-hash-table-implementations/
+
+
+Compiler Rules for Class Construction: 
+https://www.coursera.org/lecture/object-oriented-java/core-compiler-rules-for-class-construction-QHiQe
+
+
+Riffing on Unit Testing: 
+https://techdevguide.withgoogle.com/paths/foundational/riffing-unit-test-importance/#!
+
+
+Debugging Your App: 
+https://www.youtube.com/watch?v=zHlUfQ5eN0U&index=16&list=PLlyCyjh2pUe9wv-hU4my-Nen_SvXIzxGB
+
+
+Testing Your App: 
+https://www.youtube.com/watch?v=OY-shiZwv5o&list=PLlyCyjh2pUe9wv-hU4my-Nen_SvXIzxGB&index=18
+
+Test-Driven Development (TDD)
+1. Define a test case for a requirement
+2. Write tests that assert all conditions of the test case
+3. Write code against the test
+4. Iterate on and refactor code until it passes the test 
+5. Repeat until all requirements have test cases, all tests pass, and all functionality has been implemented 
+
+Tests in your project: 
+- code and resources
+- local unit tests 
+- instrumented tests 
+
+Unit tests: 
+1. smallest testable parts of your program
+2. Isolate each component and demonstrate the individual parts are correct 
+3. Java method tests 
+
+
+
+

@@ -1,0 +1,42 @@
+https://codingbat.com/prob/p198700
+
+Determine whether or not the difference in spacing between pairs of integers is equal by solving this mid-level Java problem created by Google.
+
+
+Given three ints, a b c, one of them is small, one is medium and one is large. Return true if the three values are evenly spaced, so the difference between small and medium is the same as the difference between medium and large.
+
+
+evenlySpaced(2, 4, 6) → true
+evenlySpaced(4, 6, 2) → true
+evenlySpaced(4, 6, 3) → false
+
+// You always have to sort the int first, the numbers are not coming sorted
+
+
+
+public boolean evenlySpaced(int a, int b, int c) {
+  
+  int[] int_sorted = new int[3]; 
+  int_sorted[0]=a; 
+  int_sorted[1]=b;
+  int_sorted[2]=c;
+
+  //int arr[] = new int[3]; 
+  
+  Arrays.sort(int_sorted); 
+    
+    
+    int small=int_sorted[0]; 
+    int mid=int_sorted[1]; 
+    int big=int_sorted[2]; 
+
+    int diff = Math.abs(small-mid); 
+    if(diff == Math.abs(mid-big)) return true; 
+    else return false; 
+  
+}
+
+
+
+
+
