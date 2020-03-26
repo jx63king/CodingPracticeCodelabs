@@ -40,7 +40,7 @@ public int sumNumbers(String str) {
 
 
 // create a StringBuilder object 
-// usind StringBuilder() constructor 
+// using StringBuilder() constructor 
 StringBuilder str = new StringBuilder(); 
 
 str.append("GFG"); 

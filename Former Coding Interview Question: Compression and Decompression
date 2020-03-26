@@ -1,0 +1,176 @@
+Challenge your knowlege of data structures, algorithms and more with this gentle practice problem that involves compressing and decompressing a string.
+
+The Challenge
+In this exercise, you're going to decompress a compressed string.
+
+Your input is a compressed string of the format number[string] and the decompressed output form should be the string written number times. For example:
+
+The input
+
+3[abc]4[ab]c
+
+Would be output as
+
+abcabcabcababababc
+
+#############################################################
+My thought: 
+get the int, and the string, for loop to repeat the string
+#############################################################
+
+
+Other rules
+Number can have more than one digit. For example, 10[a] is allowed, and just means aaaaaaaaaa
+
+One repetition can occur inside another. For example, 2[3[a]b] decompresses into aaabaaab
+
+Characters allowed as input include digits, small English letters and brackets [ ].
+
+Digits are only to represent amount of repetitions.
+
+Letters are just letters.
+
+Brackets are only part of syntax of writing repeated substring.
+
+Input is always valid, so no need to check its validity.
+
+Learning objectives
+This question gives you the chance to practice with strings, recursion, algorithm, compilers, automata, and loops. It’s also an opportunity to work on coding with better efficiency.
+
+###################################
+Write a recursion function to do the string manipulation. 
+
+###################################
+
+Solution explained, commentary
+A basic solution involves use of simple recursion and loops.
+
+Alternatively you can try a “peel the onion" approach, where you first decode top layer without using recursion, and then if there is any repetition group left, do the same with output after first phase. This is not bad, but the first approach is better as it may use a lot less memory.
+
+There are several catches, for example:
+
+numbers with multiple digits, like 10 or 100
+handling non-repeated strings
+handling repetitions inside
+not doing the same job twice
+not copying too much
+
+
+Discussion questions
+Once you've tried the problem, try thinking through these questions -- and maybe even write more code to push your skills a step further.
+
+1. How would you test your solution in light of you've practiced in this path?
+
+2. What are some different approaches you could take to your solution -- and how would you test those?
+
+/* my try of this problem */ 
+
+string decodeString(string s) {
+    int count = 0; 
+    String result = ""; 
+
+    boolean isFound = s.contains("["); 
+
+    if(isFound == true) 
+        return result + recursionFunc(); 
+    else
+        return s; 
+
+    
+}
+
+String recursionFunc(String s) {
+    string result = ""; 
+    int n = s.size(); 
+
+    while(i<n && s[i] != ']'){
+        if(s[i]<'0' || s[i]>'9') {
+            result = result + s[i]; 
+            i++; 
+        }
+        else {
+            int count = 0; 
+            while(s[i]>='0' && s[i]<='9') {
+                //not understanding this part 
+            }
+        }
+    }
+
+}
+
+/* end my try of this problem */ 
+
+
+string decodeString(string s) {
+        int i = 0;
+        return decode(s, i);
+    }
+
+string decode(string s, int& i) {
+        string res = "";
+        int n = s.size();
+        while (i < n && s[i] != ']') {
+            if (s[i] < '0' || s[i] > '9') {
+                res += s[i++];
+            } else {
+                int cnt = 0;
+                while (s[i] >= '0' && s[i] <= '9') {
+                    cnt = cnt * 10 + s[i++] - '0';
+                }
+                ++i;
+                string t = decode(s, i);
+                ++i;
+                while (cnt-- > 0) {
+                    res += t;
+                }
+            }
+        }
+        return res;
+    }
+
+
+=====================================================
+
+ string DFS(string s, int &k)  
+    {  
+        string ans;  
+        int cnt = 0;  
+        while(k < s.size())  
+        {  
+            if(isdigit(s[k])) cnt = cnt*10 + (s[k++]-'0');  
+            else if(s[k]=='[')  
+            {  
+                string tem = DFS(s, ++k);  
+                for(int i = 0; i < cnt; i++) ans += tem;  
+                cnt = 0;  
+            }  
+            else if(s[k]==']')  
+            {  
+                k++;  
+                return ans;  
+            }  
+            else ans += s[k++];  
+        }  
+        return ans;  
+    }  
+      
+    string decodeString(string s) {  
+        int k = 0;  
+        return DFS(s, k);  
+    } 
+
+=====================================================
+
+
+
+
+Leetcode decode string: https://massivealgorithms.blogspot.com/2016/09/leetcode-394-decode-string.html
+
+
+
+Leetcode encode string: https://massivealgorithms.blogspot.com/2016/12/leetcode-471-encode-string-with.html
+
+
+
+
+
